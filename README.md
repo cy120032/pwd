@@ -1,2 +1,2 @@
 # pwd
-password generator
+manage password!
