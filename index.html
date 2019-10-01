@@ -1,4 +1,3 @@
-
 <html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
 <head>  
 	<title>Pwd</title>
@@ -17,7 +16,9 @@ var jsonConfig=[
 {"Name":"建行","Key":"jiansheyinghang "},
 {"Name":"苏宁","Key":"suningyigou"},
 {"Name":"小米","Key":"xiaomi"},
-{"Name":"百度","Key":"baidu"}
+{"Name":"百度","Key":"baidu"},
+{"Name":"vultr","Key":"vultr"},
+{"Name":"paypal","Key":"paypal"}
  ];//jsonConfig
 	</script>
 <script type="text/javascript">
@@ -142,10 +143,10 @@ d[e>>>5]|=128<<24-e%32;d[(e+64>>>9<<4)+14]=h.floor(b/4294967296);d[(e+64>>>9<<4)
 
 
 .input {
-  display: block;
+  
   margin: 0.1em;
   height: 2em;
-  width:20em;
+  width:9.8em;
   padding: 0.3em 1em;
   font-size: 1em;
   font-family: Georgia,Arial;
@@ -199,7 +200,7 @@ d[e>>>5]|=128<<24-e%32;d[(e+64>>>9<<4)+14]=h.floor(b/4294967296);d[(e+64>>>9<<4)
 <body>
 
 <input id="genPassword" type="input" placeholder="密码" class="input" onchange="genPwd()" ></input>
-<input id="search" placeholder="搜索" class="input" ></input>
+<input id="search" placeholder="搜索" class="input"  ></input>
 <div id="webList">
 </div>
 <br>
@@ -293,6 +294,7 @@ function setList(config)
 	$("#webList").html(result);
 	$(".webListItem").click(function() {
 			websiteKey = this.id;
+			websiteKeyName = this.innerText;
 			$("#genPassword").prop("placeholder","请输入 "+ this.innerText+" 主密码");
 			$("#genPassword").prop("value", "");
 			$("#genPassword").focus();
